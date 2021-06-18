@@ -14,7 +14,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value = "/Listagem")
+@RequestMapping(value = "/listagem")
 @Tag(name="Listagem de Veículos de um Usuário")
 public class ListagemController {
 
