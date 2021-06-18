@@ -2,14 +2,19 @@ package com.zupproject.desafio.model;
 
 public class AnoModelo
 {
-    private int nome;
-    private String codigo;
+    public AnoModelo(String nome, String codigo) {
+        this.codigo = codigo;
+        this.nome = nome;
+    }
 
-    public int getNome() {
+    private String codigo;
+    private String nome;
+
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(int nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 

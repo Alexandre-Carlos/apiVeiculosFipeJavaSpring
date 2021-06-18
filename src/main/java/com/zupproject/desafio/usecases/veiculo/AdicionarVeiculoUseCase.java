@@ -7,6 +7,7 @@ import com.zupproject.desafio.dto.veiculo.AdicionarVeiculoRequestDTO;
 import com.zupproject.desafio.dto.veiculo.AdicionarVeiculoResponseDTO;
 import com.zupproject.desafio.exceptions.BusinessException;
 import com.zupproject.desafio.interfaces.usecases.veiculo.IAdicionarVeiculoUseCases;
+import com.zupproject.desafio.model.TabelaFipe;
 import com.zupproject.desafio.model.Usuario;
 import com.zupproject.desafio.model.Veiculo;
 import com.zupproject.desafio.repository.RepositoryUsuarioImp;
@@ -64,7 +65,7 @@ public class AdicionarVeiculoUseCase implements IAdicionarVeiculoUseCases {
 
             Veiculo veiculoAdicionar = adapter.converterRequestParaVeiculo(request);
 
-            tableFipeValor.buscaValorFipe(veiculoAdicionar.getMarca(),veiculoAdicionar.getModelo(), veiculoAdicionar.getAnofabricacao());
+            TabelaFipe veiculoRetornoApi = tableFipeValor.buscaValorFipe(veiculoAdicionar.getMarca(),veiculoAdicionar.getModelo(), veiculoAdicionar.getAnofabricacao());
 
 
             veiculoAdicionar.setValortabelafipe(10500D);

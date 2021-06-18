@@ -1,10 +1,21 @@
 package com.zupproject.desafio.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ModeloVeiculo {
 
-    private List<Modelo> modelos;
+    public ModeloVeiculo() {
+
+    }
+
+    public ModeloVeiculo(List<Modelo> modelos, List<Ano> anos) {
+        this.modelos = modelos;
+        this.anos = anos;
+    }
+
+    private List<Modelo> modelos = new ArrayList<>();
+    private List<Ano> anos = new ArrayList<>();
 
     public List<Modelo> getModelos() {
         return modelos;
@@ -14,22 +25,29 @@ public class ModeloVeiculo {
         this.modelos = modelos;
     }
 
+    public List<Ano> getAnos() {
+        return anos;
+    }
 
-    public class Modelo
+    public void setAnos(List<Ano> anos) {
+        this.anos = anos;
+    }
+
+    public static class Modelo
     {
-        public Modelo(String codigo, String nome) {
+        public Modelo(Integer codigo, String nome) {
             this.codigo = codigo;
             this.nome = nome;
         }
 
-        private String codigo ;
+        private Integer codigo ;
         private String nome;
 
-        public String getCodigo() {
+        public Integer getCodigo() {
             return codigo;
         }
 
-        public void setCodigo(String codigo) {
+        public void setCodigo(Integer codigo) {
             this.codigo = codigo;
         }
 
@@ -44,7 +62,7 @@ public class ModeloVeiculo {
 
     }
 
-    public class Ano
+    public static class Ano
     {
         public Ano(String nome, String codigo) {
             this.nome = nome;

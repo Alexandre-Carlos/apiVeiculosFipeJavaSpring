@@ -1,8 +1,11 @@
 package com.zupproject.desafio.adapter.veiculo;
 
 import com.zupproject.desafio.interfaces.service.ITabelaFipeApiConsulta;
+import com.zupproject.desafio.model.AnoModelo;
 import com.zupproject.desafio.model.MarcaVeiculo;
 import com.zupproject.desafio.model.ModeloVeiculo;
+import com.zupproject.desafio.model.TabelaFipe;
+import com.zupproject.desafio.service.TabelaFipeRestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,43 +16,32 @@ import java.util.List;
 public class ConsultaApiTabelaFipe {
 
     @Autowired
-    //private TabelaFipeRestService tabelafipe;
-    private ITabelaFipeApiConsulta tabelafipe;
+    private TabelaFipeRestService tabelafipe;
+    //private ITabelaFipeApiConsulta tabelafipe;
 
-   public String buscaValorFipe(String marca, String modelo, String anoFabricacao) throws IOException {
+   public TabelaFipe buscaValorFipe(String marca, String modelo, String anoFabricacao) throws IOException {
         //List<MarcaVeiculo> Listamarca =  tabelafipe.getMarca();
 
-       List<MarcaVeiculo> Listamarca =  tabelafipe.buscaMarcaCarros();
+       List<MarcaVeiculo> Listamarca =  tabelafipe.getMarca();
 
        MarcaVeiculo marcaSelecionada = Listamarca.stream().filter(lista -> lista.getNome().toLowerCase().equals(marca.toLowerCase())).findFirst().get();
 
 
 
-       ModeloVeiculo listaModelo =  tabelafipe.buscaModeloCarros(marcaSelecionada.getCodigo());
+       ModeloVeiculo listaModelo =  tabelafipe.getModelo(marcaSelecionada.getCodigo());
+
+       List<ModeloVeiculo.Modelo> listaModeloVeiculo = listaModelo.getModelos();
+
+       ModeloVeiculo.Modelo modeloSelecionado =  listaModeloVeiculo.stream().filter(m -> m.getNome().toLowerCase().startsWith(modelo.toLowerCase())).findFirst().get();
 
 
+      List<AnoModelo> listaAnoModelo =  tabelafipe.getAno(marcaSelecionada.getCodigo(), modeloSelecionado.getCodigo());
 
-//       ModeloResponse listaModelo =  tabelafipe.buscaModeloCarros(marcaSelecionada.getCodigo()).get();
-//
-//
-       int codigoModelo = 0;
+      AnoModelo anoSelecionado = listaAnoModelo.stream().filter(lista -> lista.getNome().startsWith(anoFabricacao)).findFirst().get();
 
+       TabelaFipe veiculoSelecionado = tabelafipe.getValor(marcaSelecionada.getCodigo(), modeloSelecionado.getCodigo(), anoSelecionado.getCodigo());
 
-
-
-//       for(Modelo modelos : listaModelo){
-//           if(modelos.getNome().equals(modelo)){
-//               codigoModelo = modelos.getCodigo();
-//           }
-//       }
-
-
-      // AnoModelo listaAnoModelo =  tabelafipe.getAno(marcaSelecionada.getCodigo(), codigoModelo);
-
-
-      //Modelo modeloSelecionado = listaModelo.stream().filter(lista -> lista.getModelos()).toLowerCase().startsWith(modelo.toLowerCase())).findFirst().get();
-
-        return marcaSelecionada.toString();
+      return veiculoSelecionado;
    }
 
 
