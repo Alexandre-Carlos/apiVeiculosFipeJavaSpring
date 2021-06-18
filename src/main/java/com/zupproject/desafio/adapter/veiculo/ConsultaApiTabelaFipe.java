@@ -22,24 +22,25 @@ public class ConsultaApiTabelaFipe {
    public TabelaFipe buscaValorFipe(String marca, String modelo, String anoFabricacao) throws IOException {
         //List<MarcaVeiculo> Listamarca =  tabelafipe.getMarca();
 
-       List<MarcaVeiculo> Listamarca =  tabelafipe.getMarca();
+       List<MarcaVeiculo> Listamarca =  tabelafipe.getVeiculoMarca();
 
        MarcaVeiculo marcaSelecionada = Listamarca.stream().filter(lista -> lista.getNome().toLowerCase().equals(marca.toLowerCase())).findFirst().get();
 
 
 
-       ModeloVeiculo listaModelo =  tabelafipe.getModelo(marcaSelecionada.getCodigo());
+       ModeloVeiculo listaModelo =  tabelafipe.getVeiculoModelo(marcaSelecionada.getCodigo());
 
        List<ModeloVeiculo.Modelo> listaModeloVeiculo = listaModelo.getModelos();
 
        ModeloVeiculo.Modelo modeloSelecionado =  listaModeloVeiculo.stream().filter(m -> m.getNome().toLowerCase().startsWith(modelo.toLowerCase())).findFirst().get();
 
 
-      List<AnoModelo> listaAnoModelo =  tabelafipe.getAno(marcaSelecionada.getCodigo(), modeloSelecionado.getCodigo());
+      List<AnoModelo> listaAnoModelo =  tabelafipe.getVeiculoAno(marcaSelecionada.getCodigo(), modeloSelecionado.getCodigo());
 
       AnoModelo anoSelecionado = listaAnoModelo.stream().filter(lista -> lista.getNome().startsWith(anoFabricacao)).findFirst().get();
 
-       TabelaFipe veiculoSelecionado = tabelafipe.getValor(marcaSelecionada.getCodigo(), modeloSelecionado.getCodigo(), anoSelecionado.getCodigo());
+       TabelaFipe veiculoSelecionado = tabelafipe.getVeiculoValor(marcaSelecionada.getCodigo(),
+               modeloSelecionado.getCodigo(), anoSelecionado.getCodigo());
 
       return veiculoSelecionado;
    }

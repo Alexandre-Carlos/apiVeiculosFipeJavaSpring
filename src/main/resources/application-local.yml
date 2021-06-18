@@ -3,12 +3,13 @@ server:
   servlet:
     context-path: /desafio
 
+
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: postgres://qjelnpcjjmdenb:163ee2818662670d6c31edcf782261e21968cc962a2e657858c645fde341ac5b@ec2-34-230-115-172.compute-1.amazonaws.com:5432/d81ho8tgbhstg9
-    username: qjelnpcjjmdenb
-    password: 163ee2818662670d6c31edcf782261e21968cc962a2e657858c645fde341ac5b
+    url: jdbc:postgresql://localhost:5432/controleveiculos
+    username: postgres
+    password: 123456
   jpa:
     show-sql: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect

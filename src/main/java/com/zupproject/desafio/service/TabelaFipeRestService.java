@@ -16,25 +16,23 @@ public class TabelaFipeRestService  {
     @Autowired
     private ITabelaFipeApiConsulta fipeService;
 
-    public List<MarcaVeiculo> getMarca(){
+    public List<MarcaVeiculo> getVeiculoMarca(){
         List<MarcaVeiculo> listaMarcas = fipeService.buscaMarcaCarros();
         return listaMarcas;
     }
 
-    public ModeloVeiculo getModelo(int codigoModelo){
+    public ModeloVeiculo getVeiculoModelo(int codigoModelo){
         ModeloVeiculo listaModelos = fipeService.buscaModeloCarros(codigoModelo);
         return listaModelos;
     }
 
-   public List<AnoModelo> getAno(int codigoMarca, int codigoModelo){
+   public List<AnoModelo> getVeiculoAno(int codigoMarca, int codigoModelo){
         List<AnoModelo> listaAnoModelo = fipeService.buscaAnoCarros(codigoMarca, codigoModelo);
         return listaAnoModelo;
     }
 
-    public TabelaFipe getValor(int codigoMarca, int codigoModelo, String codigoAno){
+    public TabelaFipe getVeiculoValor(int codigoMarca, int codigoModelo, String codigoAno){
         TabelaFipe veiculoTabelaFipe = fipeService.buscaValorCarros(codigoMarca, codigoModelo, codigoAno);
         return veiculoTabelaFipe;
     }
-
-
 }

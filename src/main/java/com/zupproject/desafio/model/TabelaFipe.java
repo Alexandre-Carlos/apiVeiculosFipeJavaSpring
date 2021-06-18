@@ -1,86 +1,111 @@
 package com.zupproject.desafio.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class TabelaFipe {
 
-    private double Valor;
-    private String Marca;
-    private String Modelo;
-    private int AnoModelo;
-    private String Combustivel;
-    private String CodigoFipe;
-    private String MesReferencia;
-    private int TipoVeiculo;
-    private String SiglaCombustivel;
+    public TabelaFipe(String valor, String marca, String modelo, Integer anomodelo, String combustivel, String codigofipe, String mesreferencia, Integer tipoveiculo, String siglacombustivel) {
 
-    public double getValor() {
-        return Valor;
+
+        this.valor = valor;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.anomodelo = anomodelo;
+        this.combustivel = combustivel;
+        this.codigofipe = codigofipe;
+        this.mesreferencia = mesreferencia;
+        this.tipoveiculo = tipoveiculo;
+        this.siglacombustivel = siglacombustivel;
     }
 
-    public void setValor(double valor) {
-        Valor = valor;
+    @JsonProperty("Valor")
+    private String valor;
+    @JsonProperty("Marca")
+    private String marca;
+    @JsonProperty("Modelo")
+    private String modelo;
+    @JsonProperty("AnoModelo")
+    private Integer anomodelo;
+    @JsonProperty("Combustivel")
+    private String combustivel;
+    @JsonProperty("CodigoFipe")
+    private String codigofipe;
+    @JsonProperty("MesReferencia")
+    private String mesreferencia;
+    @JsonProperty("TipoVeiculo")
+    private Integer tipoveiculo;
+    @JsonProperty("SiglaCombustivel")
+    private String siglacombustivel;
+
+    public String getValor() {
+        return valor;
+    }
+
+    public void setValor(String valor) {
+        this.valor = valor;
     }
 
     public String getMarca() {
-        return Marca;
+        return marca;
     }
 
     public void setMarca(String marca) {
-        Marca = marca;
+        this.marca = marca;
     }
 
     public String getModelo() {
-        return Modelo;
+        return modelo;
     }
 
     public void setModelo(String modelo) {
-        Modelo = modelo;
+        this.modelo = modelo;
     }
 
-    public int getAnoModelo() {
-        return AnoModelo;
+    public Integer getAnomodelo() {
+        return anomodelo;
     }
 
-    public void setAnoModelo(int anoModelo) {
-        AnoModelo = anoModelo;
+    public void setAnomodelo(Integer anomodelo) {
+        this.anomodelo = anomodelo;
     }
 
     public String getCombustivel() {
-        return Combustivel;
+        return combustivel;
     }
 
     public void setCombustivel(String combustivel) {
-        Combustivel = combustivel;
+        this.combustivel = combustivel;
     }
 
-    public String getCodigoFipe() {
-        return CodigoFipe;
+    public String getCodigofipe() {
+        return codigofipe;
     }
 
-    public void setCodigoFipe(String codigoFipe) {
-        CodigoFipe = codigoFipe;
+    public void setCodigofipe(String codigofipe) {
+        this.codigofipe = codigofipe;
     }
 
-    public String getMesReferencia() {
-        return MesReferencia;
+    public String getMesreferencia() {
+        return mesreferencia;
     }
 
-    public void setMesReferencia(String mesReferencia) {
-        MesReferencia = mesReferencia;
+    public void setMesreferencia(String mesreferencia) {
+        this.mesreferencia = mesreferencia;
     }
 
-    public int getTipoVeiculo() {
-        return TipoVeiculo;
+    public Integer getTipoveiculo() {
+        return tipoveiculo;
     }
 
-    public void setTipoVeiculo(int tipoVeiculo) {
-        TipoVeiculo = tipoVeiculo;
+    public void setTipoveiculo(Integer tipoveiculo) {
+        this.tipoveiculo = tipoveiculo;
     }
 
-    public String getSiglaCombustivel() {
-        return SiglaCombustivel;
+    public String getSiglacombustivel() {
+        return siglacombustivel;
     }
 
-    public void setSiglaCombustivel(String siglaCombustivel) {
-        SiglaCombustivel = siglaCombustivel;
+    public void setSiglacombustivel(String siglacombustivel) {
+        this.siglacombustivel = siglacombustivel;
     }
 }

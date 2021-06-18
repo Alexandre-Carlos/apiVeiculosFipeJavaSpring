@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @FeignClient(url="https://parallelum.com.br/fipe/api/v1", name="fipe")
 public interface ITabelaFipeApiConsulta {
@@ -30,7 +31,6 @@ public interface ITabelaFipeApiConsulta {
                @PathVariable ("codigomodelo") Integer codigomodelo);
 
     @GetMapping(value = "/carros/marcas/{codigomarca}/modelos/{codigomodelo}/anos/{ano}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    TabelaFipe buscaValorCarros(@PathVariable("codigomarca") Integer codigomarca,
-               @PathVariable("codigomodelo") Integer codigomodelo, @PathVariable("ano") String ano);
+    TabelaFipe buscaValorCarros(@PathVariable("codigomarca") Integer codigomarca, @PathVariable("codigomodelo") Integer codigomodelo, @PathVariable("ano") String ano);
 
 }

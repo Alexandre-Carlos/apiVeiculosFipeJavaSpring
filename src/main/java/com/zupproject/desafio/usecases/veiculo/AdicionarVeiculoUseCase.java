@@ -67,8 +67,13 @@ public class AdicionarVeiculoUseCase implements IAdicionarVeiculoUseCases {
 
             TabelaFipe veiculoRetornoApi = tableFipeValor.buscaValorFipe(veiculoAdicionar.getMarca(),veiculoAdicionar.getModelo(), veiculoAdicionar.getAnofabricacao());
 
+            String valorVeiculo = veiculoRetornoApi.getValor().replaceAll( "\\." , "" )
+                    .replaceAll("\\,", ".")
+                    .substring(3);
 
-            veiculoAdicionar.setValortabelafipe(10500D);
+
+            veiculoAdicionar.setValortabelafipe(Double.parseDouble(valorVeiculo));
+
             repository.save(veiculoAdicionar);
 
             response = adapter.converterVeiculoParaResponse(veiculoAdicionar);
