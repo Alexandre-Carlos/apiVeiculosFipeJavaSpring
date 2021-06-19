@@ -16,10 +16,9 @@
 - Spring Web
 - SpringDoc Openapi
 - Maven
-- 
 
 ## Escopo
-	Projeto de manipulação de Veículos e usuários 
+- Projeto de manipulação de Veículos e usuários 
 
 ## Persistencia
 
