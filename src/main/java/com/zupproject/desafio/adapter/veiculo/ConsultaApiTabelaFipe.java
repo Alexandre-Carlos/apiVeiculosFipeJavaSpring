@@ -1,6 +1,5 @@
 package com.zupproject.desafio.adapter.veiculo;
 
-import com.zupproject.desafio.interfaces.service.ITabelaFipeApiConsulta;
 import com.zupproject.desafio.model.AnoModelo;
 import com.zupproject.desafio.model.MarcaVeiculo;
 import com.zupproject.desafio.model.ModeloVeiculo;
@@ -17,10 +16,10 @@ public class ConsultaApiTabelaFipe {
 
     @Autowired
     private TabelaFipeRestService tabelafipe;
-    //private ITabelaFipeApiConsulta tabelafipe;
+
 
    public TabelaFipe buscaValorFipe(String marca, String modelo, String anoFabricacao) throws IOException {
-        //List<MarcaVeiculo> Listamarca =  tabelafipe.getMarca();
+
 
        List<MarcaVeiculo> Listamarca =  tabelafipe.getVeiculoMarca();
 

@@ -6,10 +6,10 @@ import com.zupproject.desafio.model.ModeloVeiculo;
 import com.zupproject.desafio.model.TabelaFipe;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
-import java.util.Optional;
 
 @FeignClient(url="https://parallelum.com.br/fipe/api/v1", name="fipe")
 public interface ITabelaFipeApiConsulta {

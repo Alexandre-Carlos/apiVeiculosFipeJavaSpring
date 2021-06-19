@@ -7,16 +7,12 @@ import java.time.LocalDate;
 
 public class AdicionarUsuarioRequestDTO {
 
-
-
     @NotNull
     private String nome;
     @NotNull
     private String email;
     @NotNull
     private String cpf;
-
-
     @NotNull
     private LocalDate datanascimento;
 

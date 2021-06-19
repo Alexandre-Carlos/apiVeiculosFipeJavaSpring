@@ -45,7 +45,8 @@ public class UsuarioController {
 
     @Operation(summary = "Alterar Usuário")
     @PutMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<AtualizarUsuarioResponseDTO> update(@PathVariable(value = "id") int id, @Valid @RequestBody AtualizarUsuarioRequestDTO request){
+    public ResponseEntity<AtualizarUsuarioResponseDTO> update(@PathVariable(value = "id") int id,
+                                                              @Valid @RequestBody AtualizarUsuarioRequestDTO request){
         return new ResponseEntity<>(atualizarUsuarioUseCase.Executar(request, id), HttpStatus.OK);
     }
 

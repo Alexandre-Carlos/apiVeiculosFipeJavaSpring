@@ -9,7 +9,6 @@ public interface IRepositoryUsuarioImp {
 
    int save(Usuario request);
 
-
    int update(Usuario request);
 
    void delete(int id);
